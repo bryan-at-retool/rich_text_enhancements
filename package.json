@@ -25,6 +25,7 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "dompurify": "^2.3.5",
     "quill-blot-formatter": "^1.0.5",
     "quill-image-resize-module": "^3.0.0",
     "quill-image-resize-module-react": "^3.0.0",

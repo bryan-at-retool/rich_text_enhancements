@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuill } from 'react-quilljs';
 import BlotFormatter from 'quill-blot-formatter';
+import { sanitize } from 'dompurify'
 import 'quill/dist/quill.snow.css';
 
 import './styles.css';
@@ -24,7 +25,7 @@ const Editor = ({triggerQuery, model, modelUpdate}) => {
   useEffect(() => {
     if (quill) {
       quill.on('text-change', (delta, oldContents) => {
-        modelUpdate({output: quillRef.current.firstChild.innerHTML})
+        modelUpdate({output: sanitize(quillRef.current.firstChild.innerHTML)})
       });
     }
   }, [quill, Quill]);
@@ -34,7 +35,7 @@ const Editor = ({triggerQuery, model, modelUpdate}) => {
     if (input && quillRef.current && quillRef.current.firstChild && quill && quill.clipboard) {
       if (input !== quillRef.current.firstChild.innerHTML) {
         quill.clipboard.dangerouslyPasteHTML( input )
-        modelUpdate({output: quillRef.current.firstChild.innerHTML, input: quillRef.current.firstChild.innerHTML})
+        modelUpdate({output: sanitize(quillRef.current.firstChild.innerHTML), input: sanitize(quillRef.current.firstChild.innerHTML)})
       }
     }
   },[input, quillRef.current, quill])
