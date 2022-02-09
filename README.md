@@ -26,6 +26,6 @@
 ```
 
 - leave toolbar out to also get all options
-- (Toolbar settings)[https://quilljs.com/docs/modules/toolbar/]
+- [Toolbar settings](https://quilljs.com/docs/modules/toolbar/)
 - To refresh the input, change the `input` key like with `{{ table1.selectedRow.data.notes }}`
 - All changes are written to the `output` key like `{{ customComponent1.model.output }}`
