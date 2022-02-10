@@ -3,6 +3,7 @@
 {
   input: "",
   output: "",
+  onBlur: "retoolQueryToRunOnBlor",
 	toolbar: [
             [{ "font": [] }, { "size": ["small", false, "large", "huge"] }], // custom dropdown
 

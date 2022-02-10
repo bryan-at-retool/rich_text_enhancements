@@ -31,7 +31,6 @@ const Editor = ({triggerQuery, model, modelUpdate}) => {
   }, [quill, Quill]);
 
   useEffect(()=>{
-    console.log(input)
     if (input && quillRef.current && quillRef.current.firstChild && quill && quill.clipboard) {
       if (input !== quillRef.current.firstChild.innerHTML) {
         quill.clipboard.dangerouslyPasteHTML( input )
@@ -43,7 +42,10 @@ const Editor = ({triggerQuery, model, modelUpdate}) => {
 
   return (
     <div id={"quill"}>
-      <div ref={quillRef} />
+      <div 
+        ref={quillRef} 
+        onBlur={()=>{ if (model.onBlur) triggerQuery(model.onBlur)}}
+      />
     </div>
   );
 };
